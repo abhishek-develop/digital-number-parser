@@ -1,5 +1,9 @@
 package parser;
 
+/**
+ * A rapper class for the char[][] array
+ * Also, contains constants representing digits from 0 to 9
+ */
 public class Digit {
 
     public static final char[][] NULL = {
