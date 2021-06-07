@@ -3,6 +3,9 @@ package digital.number.scanner.service;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import parser.Digit;
+import parser.LineMatcher;
+import parser.LineProcessor;
 import parser.Parser;
 
 import java.io.IOException;
@@ -45,9 +48,11 @@ public abstract class BaseScannerServiceIntegrationTest {
     protected List<String> performScanning(final String inputFilePath) {
 
         Path inputDirPath = Paths.get("src", "test", "resources", "testInput").resolve("example");
-        Parser parser = new Parser();
+        
         try {
-            return parser.parse(inputDirPath);
+            List<String> parsedData = Parser.parse(inputDirPath);
+            List<Digit> digits = LineProcessor.process(parsedData);
+            return LineMatcher.matchAndPrint(digits);
         } catch (Exception e) {
             e.printStackTrace();
         }
