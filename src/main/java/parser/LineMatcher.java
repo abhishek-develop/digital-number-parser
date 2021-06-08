@@ -13,45 +13,49 @@ public class LineMatcher {
     public static List<String> matchAndPrint(List<Digit> numbers) {
         
         List<String> list = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
         for (Digit d : numbers) {
-
+            
             if (isEqual(d.getValue(), Digit.ZERO)) {
                 System.out.print(0);
-                list.add("0");
+                sb.append("0");
             } else if (isEqual(d.getValue(), Digit.ONE)) {
                 System.out.print(1);
-                list.add("1");
+                sb.append("1");
             } else if (isEqual(d.getValue(), Digit.TWO)) {
                 System.out.print(2);
-                list.add("2");
+                sb.append("2");
             } else if (isEqual(d.getValue(), Digit.THREE)) {
                 System.out.print(3);
-                list.add("3");
+                sb.append("3");
             } else if (isEqual(d.getValue(), Digit.FOUR)) {
                 System.out.print(4);
-                list.add("4");
+                sb.append("4");
             } else if (isEqual(d.getValue(), Digit.FIVE)) {
                 System.out.print(5);
-                list.add("5");
+                sb.append("5");
             } else if (isEqual(d.getValue(), Digit.SIX)) {
                 System.out.print(6);
-                list.add("6");
+                sb.append("6");
             } else if (isEqual(d.getValue(), Digit.SEVEN)) {
                 System.out.print(7);
-                list.add("7");
+                sb.append("7");
             } else if (isEqual(d.getValue(), Digit.EIGHT)) {
                 System.out.print(8);
-                list.add("8");
+                sb.append("8");
             } else if (isEqual(d.getValue(), Digit.NINE)) {
                 System.out.print(9);
-                list.add("9");
+                sb.append("9");
             } else if (isEqual(d.getValue(), Digit.NULL)) {
-                System.out.println();list.add("\n");
+                System.out.println();
+                list.add(sb.toString());
+                sb = new StringBuilder();
             } else {
                 System.out.print("ILL");
-                list.add("ILL");
+                sb.append("ILL");
             }
         }
+        list.add(sb.toString());
         return list;
     }
 

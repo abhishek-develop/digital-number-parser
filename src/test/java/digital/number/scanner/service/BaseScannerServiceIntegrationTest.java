@@ -45,19 +45,7 @@ public abstract class BaseScannerServiceIntegrationTest {
                 .collect(Collectors.toList());
     }
 
-    protected List<String> performScanning(final String inputFilePath) {
-
-        Path inputDirPath = Paths.get("src", "test", "resources", "testInput").resolve("example");
-        
-        try {
-            List<String> parsedData = Parser.parse(inputDirPath);
-            List<Digit> digits = LineProcessor.process(parsedData);
-            return LineMatcher.matchAndPrint(digits);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+    protected abstract List<String> performScanning(final String inputFilePath) ;
 
     @Test
     public final void testScanner() throws IOException {
